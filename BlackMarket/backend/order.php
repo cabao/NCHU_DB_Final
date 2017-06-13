@@ -1,33 +1,43 @@
-<?php
-  header('Content-Type: application/json');
-  require_once("dbdb.php");
 
-  // Inital GET Action Parameter
-  $count = 0 ;
-  foreach($_GET as $key => $value)
-  {
-    $KeyData[$count] = $key ;
-    $ValueData[$count] = $value;
-    $count++;
-  }
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/materialize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="./js/materialize.js"></script>
+    <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendors/sweetalert/dist/sweetalert.css">
 
-//一次輸入一筆
-  $sql = "INSERT INTO orders ($KeyData[0]) VALUES ($ValueData[0])";
-  $db_link->query($sql);
+    <title>訂單管理</title>
+    <script type="text/javascript">
+      $(document).ready(function() {
 
-//變更products存貨數量
-  $sql = "SELECT inventory FROM products WHERE id = $ValueData[0]";
-  $result = $db_link->query($sql);
-  $inventory = 0;
-  while($row = $result->fetch_assoc()) {
-      $inventory = $row;
-  }
+      });
 
-  $number = $inventory[inventory] - 1;
-  $sql = "UPDATE products Set inventory = $number Where id = $ValueData[0]";
-  $db_link->query($sql);
-  //
-  $db_link->close();
+    </script>
+  </head>
+  <body style="background-color:#222831">
 
-  header('Location: index.html');
-?>
+    <nav class="top-nav">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title center" style="margin-left:15%">訂單管理</a></div>
+      </div>
+    </nav>
+    <?php include 'layouts/side-bar.php'; ?>
+
+
+    <div class="collection" id="order-list" style="background-color:#F03861">
+
+    </div>
+
+<script src="js/list-order.js" charset="utf-8"></script>
+
+
+  </body>
+</html>

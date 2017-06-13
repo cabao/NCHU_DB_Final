@@ -20,7 +20,7 @@
     <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="vendors/sweetalert/dist/sweetalert.css">
 
-    <title>管理後台</title>
+    <title>後台人員管理</title>
     <script type="text/javascript">
       $(document).ready(function() {
 
@@ -30,18 +30,15 @@
   </head>
   <body style="background-color:#222831">
 
-      <nav class="top-nav">
-        <div class="container">
-          <div class="nav-wrapper"><a class="page-title center" style="margin-left:15%">總覽</a></div>
-        </div>
-      </nav>
+    <nav class="top-nav">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title center" style="margin-left:15%">後台人員管理</a></div>
+      </div>
+    </nav>
     <?php include 'layouts/side-bar.php'; ?>
-    <script type="text/javascript">
-      $('#user_s').html("&nbsp<?php echo $_SESSION['user'] ?>");
-      $('#level_s').html("&nbsp<?php echo $_SESSION['level'] ?>");
 
 
-    </script>
+
 
   </body>
 </html>

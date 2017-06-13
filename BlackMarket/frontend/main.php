@@ -1,3 +1,12 @@
+<?php session_start(); ?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+  if($_SESSION['user'] == null)
+      header('Location: index.php');
+
+
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -14,13 +23,19 @@
     <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="vendors/sweetalert/dist/sweetalert.css">
 
-    <title>Login</title>
+    <title>Black Market</title>
     <script type="text/javascript">
       $(document).ready(function() {
         $('.carousel').carousel({dist:0});
         window.setInterval(function(){$('.carousel').carousel('next')}, 6000)
       });
-
+function carouselHeight() {
+    $('.carousel.carousel-slider').each(function() {
+        var newHeight = $(this).find('.carousel-item img').height();
+        var origStyle = $(this).attr('style');
+        $(this).attr('style', origStyle+'; height: '+newHeight+'px !important');
+    });
+}
     </script>
   </head>
   <body style="background-color:#222831">
@@ -29,11 +44,11 @@
     <div class="container">
       <div class="carousel carousel-slider center" data-indicators="true">
 
-        <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/800/400/food/1"></a>
-        <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/800/400/food/2"></a>
-        <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/800/400/food/3"></a>
-        <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/800/400/food/4"></a>
-        <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/800/400/food/3"></a>
+        <a class="carousel-item" href="#one!"><img src="images/4.jpg"width="1024" height="500"></a>
+        <a class="carousel-item" href="#two!"><img src="images/2.jpg" width="1024" height="500"></a>
+        <a class="carousel-item" href="#three!"><img src="images/3.jpg"width="1024" height="500"></a>
+        <a class="carousel-item" href="#four!"><img src="images/5.jpg"width="1024" height="500"></a>
+
 
       </div>
     </div>
@@ -43,6 +58,8 @@
 <script type="text/javascript">
 
     $('.carousel.carousel-slider').carousel({fullWidth: true});
+$(window).resize(function(){carouselHeight();});
+
 </script>
 
   </body>

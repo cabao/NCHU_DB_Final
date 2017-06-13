@@ -20,7 +20,7 @@
     <script src="vendors/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="vendors/sweetalert/dist/sweetalert.css">
 
-    <title>管理後台</title>
+    <title>商品管理</title>
     <script type="text/javascript">
       $(document).ready(function() {
 
@@ -30,18 +30,22 @@
   </head>
   <body style="background-color:#222831">
 
-      <nav class="top-nav">
-        <div class="container">
-          <div class="nav-wrapper"><a class="page-title center" style="margin-left:15%">總覽</a></div>
-        </div>
-      </nav>
+    <nav class="top-nav">
+      <div class="container">
+        <div class="nav-wrapper"><a class="page-title center" style="margin-left:15%">商品管理</a></div>
+      </div>
+    </nav>
     <?php include 'layouts/side-bar.php'; ?>
-    <script type="text/javascript">
-      $('#user_s').html("&nbsp<?php echo $_SESSION['user'] ?>");
-      $('#level_s').html("&nbsp<?php echo $_SESSION['level'] ?>");
+
+    <div class="collection" id="pro-list" style="background-color:#F03861">
+
+    </div>
 
 
-    </script>
+ <a class="btn-floating btn-large waves-effect waves-light red right" style="margin-top:3%;margin-right:2%" href="./insert-product.php"><i class="material-icons">add</i></a>
+
+<script src="js/list-pro.js" charset="utf-8"></script>
+
 
   </body>
 </html>

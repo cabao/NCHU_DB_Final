@@ -2,7 +2,7 @@
 header("Content-Type: text/html; charset=utf-8");
   function create_connection()
   {
-    $conn = new mysqli("localhost", "root", "shue4828", "blackmarket");
+    $conn = new mysqli("localhost", "root", " ", "blackmarket");
 
     // Check connection
     if ($conn->connect_error) {

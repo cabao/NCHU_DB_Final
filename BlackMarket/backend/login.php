@@ -23,12 +23,13 @@ while ($row_result = $result->fetch_row())
             $arr[0] = $value;
         else if($item == 2)
             $arr[1] = $value;
-
+        else if($item == 3)
+            $arr[2] = $value;
     }
 
 
 }
-
+echo $arr[2];
 $db_link-> close();
 
 //判斷帳號與密碼是否為空白
@@ -38,8 +39,10 @@ if($username != null && $passwd != null && $arr[0] == $username && $arr[1] == $p
 
         //將帳號寫入session，方便驗證使用者身份
         $_SESSION['user'] = $user;
-        echo '登入成功!';
-        echo '<meta http-equiv=REFRESH CONTENT=1;url=main.php>';
+        $_SESSION['level'] = $arr[2];
+
+        header('Location: main.php');
+
 }
 else
 {

@@ -1,6 +1,7 @@
 <?php
 
 echo '
+<div class = "row">
   <nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo"><i class="material-icons">&nbspcloud</i>Logo</a>
@@ -11,6 +12,7 @@ echo '
         <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
       </ul>
     </div>
-  </nav>';
+  </nav>
+</div>';
 
 ?>
